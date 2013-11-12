@@ -7,7 +7,7 @@ module NetSuite
       include Support::Actions
       include Namespaces::SetupCustom
 
-      actions :get, :get_list, :add, :delete, :search
+      actions :get, :add, :delete
 
       fields :allow_attachments, :allow_inline_editing, :allow_numbering_override, :allow_quick_search, :created,
         :custom_record_id, :description, :disclaimer, :enabl_email_merge, :enable_numbering, :include_name,
@@ -48,6 +48,12 @@ module NetSuite
 
       def record_type
         "#{record_namespace}:CustomRecord"
+      end
+
+      def to_record
+        rec = super
+        rec["#{record_namespace}:customFieldList!"] = rec.delete("#{record_namespace}:customFieldList")
+        rec
       end
 
     end
