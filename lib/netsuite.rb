@@ -105,6 +105,7 @@ module NetSuite
     autoload :Task,                       'netsuite/records/task'
     autoload :Term,                       'netsuite/records/term'
     autoload :Transaction,                'netsuite/records/transaction'
+    autoload :LocationsList,              'netsuite/records/locations_list'
   end
 
   def self.configure(&block)

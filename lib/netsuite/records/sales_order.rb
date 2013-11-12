@@ -10,7 +10,7 @@ module NetSuite
       actions :get, :add, :initialize, :delete, :update, :search
 
       fields :alt_handling_cost, :alt_shipping_cost, :amount_paid, :amount_remaining, :auto_apply, :balance,
-        :bill_address, :contrib_pct, :created_date, :currency_name, :deferred_revenue, :discount_rate, :email, :end_date,
+        :bill_address, :cc_approved, :contrib_pct, :created_date, :currency_name, :deferred_revenue, :discount_rate, :email, :end_date,
         :est_gross_profit, :est_gross_profit_percent, :exchange_rate, :exclude_commission, :fax, :gift_cert_applied,
         :gift_cert_available, :gift_cert_total, :handling_cost, :handling_tax1_rate, :handling_tax2_rate, :is_taxable,
         :last_modified_date, :memo, :message, :on_credit_hold, :order_status, :other_ref_num, :recognized_revenue,
@@ -26,7 +26,7 @@ module NetSuite
       read_only_fields :applied, :discount_total, :sub_total, :tax_total, :total, :unapplied
 
       record_refs :account, :bill_address_list, :created_from, :currency, :custom_form, :department, :discount_item, :entity, :gift_cert,
-        :handling_tax_code, :job, :klass, :lead_source, :location, :message_sel, :opportunity, :partner, :posting_period, :promo_code,
+        :handling_tax_code, :job, :klass, :lead_source, :location, :message_sel, :opportunity, :partner, :payment_method, :posting_period, :promo_code,
         :sales_group, :sales_rep, :ship_method, :shipping_tax_code, :subsidiary, :terms, :tax_item
 
       attr_reader :internal_id

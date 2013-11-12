@@ -3,22 +3,28 @@ module NetSuite
     class Location
       include Support::Fields
       include Support::RecordRefs
+      include Support::Records
       include Support::Actions
+      include Namespaces::ListAcct
 
-      actions :get
+      actions :get, :add, :delete, :search
 
-      fields :addr1, :addr2, :addr3, :addr_phone, :addr_text, :addressee, :attention, :city, :country, :include_children,
-        :is_inactive, :make_inventory_available, :make_inventory_available_store, :name, :override, :state, :tran_prefix, :zip
+      fields :location, :quantity_on_hand, :on_hand_value_mli, :average_cost_mli, :last_purchase_price_mli, :reorder_point, :preferred_stock_level, :quantity_committed, :quantity_available
 
-      record_refs :logo, :parent
+      record_refs :location_id
 
-      attr_reader :internal_id
+      attr_reader   :internal_id
       attr_accessor :external_id
 
       def initialize(attributes = {})
         @internal_id = attributes.delete(:internal_id) || attributes.delete(:@internal_id)
         @external_id = attributes.delete(:external_id) || attributes.delete(:@external_id)
         initialize_from_attributes_hash(attributes)
+      end
+
+      def to_record
+	rec = super
+        rec
       end
 
     end

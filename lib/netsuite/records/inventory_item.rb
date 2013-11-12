@@ -7,7 +7,7 @@ module NetSuite
       include Support::Actions
       include Namespaces::ListAcct
 
-      actions :get, :add, :delete
+      actions :get, :add, :delete, :search
 
       fields :auto_lead_time, :auto_preferred_stock_level, :auto_reorder_point, :available_to_partners, :average_cost,
         :copy_description, :cost, :cost_estimate, :cost_estimate_type, :cost_estimate_units, :cost_units, :costing_method,
@@ -44,6 +44,7 @@ module NetSuite
       field :custom_field_list, CustomFieldList
       field :bin_number_list, BinNumberList
       field :pricing_matrix, PricingMatrix
+      field :locations_list, LocationsList
       
       attr_reader :internal_id
       attr_accessor :external_id
